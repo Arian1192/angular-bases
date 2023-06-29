@@ -26,7 +26,6 @@ export class AddCharacterComponent {
   // la data dentro del metodo por que ya vive en la clase.
   emitCharacter(): void {
     // aqui obtenemos los datos del html.
-    debugger;
     console.log(this.character)
     // Primero hacemos una comprobación para asegurarnos que el character.name tiene datos.
     if (this.character.name.length === 0) return
