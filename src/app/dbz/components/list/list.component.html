@@ -1,0 +1,25 @@
+<h4>Character List</h4>
+<ul class="list-group">
+  <li
+    class="list-group-item"
+    *ngFor="
+      let character of characterList;
+      let i = index;
+      let isFirst = first;
+      let isLast = last;
+      let isEven = even;
+      let isOdd = odd
+    "
+    [ngClass]="{
+      'list-group-item-dark': isOdd,
+      'list-group-item-primary': isFirst
+    }"
+  >
+    <span class="text-primary">{{ i + 1 }}. </span>
+    <span>{{ character.name }}</span> - <strong>Power: </strong>
+    <span> {{ character.power }} </span>
+  </li>
+</ul>
+
+<!-- La directiva ngClass es una directiva que nos permite añadir condicionales par aplicar css etc -->
+<!-- si colocamos [class] le decimos a angular que controle lo que pase despues del igual es decir que use una expresion. -->

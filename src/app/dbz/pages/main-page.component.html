@@ -1,0 +1,43 @@
+<h1>DBZ Personajes</h1>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <dbz-list [characterList]="characters"></dbz-list>
+  </div>
+  <div class="col">
+    <dbz-add-character (onNewCharacter)="onNewCharacter($event)">
+    </dbz-add-character>
+  </div>
+</div>
+
+
+<!-- En esta sección estamos pasando propiedades que viven en el
+componente Padre osea en "main-page-component" hacia los hijos, en react esto seria un prop-drilling
+de primer nivel ( de padre a hijo )
+en este caso el componente ListComponent esto lo hacemos bindeando
+los datos
+
+
+      [propiedad declarada en el hijo] = "datos que pasamos desde el padre"
+
+*** En este caso si vamos al ListComponent ( hijo ), tenemos una propiedad con un decorador
+    @Input() -> esto lo que implica es que esa propiedad espera un valor.
+    podemos colocarle un valor por defecto, además si tipamos la propiedad, podemos
+    asegurarnos que el valor que pasamos tiene sentido.
+
+    Por ejemplo si en el scope de propiedad colocamos characterList, sabemos que el hijo
+    al que le queremos pasar nuestros datos tiene que tener una propiedad "publica"
+    que se llame characterList además, si tipamos a través de una interface por ejemplo
+    determinamos que ese characterList va a ser de tipo Character y concretamente será
+    un array de Character -> {name:'Goku', power: '5000'}, sabemos que characterList recibirá
+    un array de Character -> Character[]
+
+    Lo unico que nos queda sera pasarle los datos despues del igual
+
+    el resultado seria:
+
+    <componente [publicPropertyFromChild] ="dataFromParent"></componente>
+    o lo que es lo mismo
+    <dbz-list [characterList] = "characters"><dbz-list>
+-->

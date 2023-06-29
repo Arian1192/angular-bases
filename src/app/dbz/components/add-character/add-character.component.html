@@ -1,0 +1,25 @@
+<h4>Agregar Personaje</h4>
+<!-- el ngSubmit a través del metodo emitCharacter recoje los datos de los ngModel y su propiedad Name y Power -->
+<form class="row" (ngSubmit)="emitCharacter()">
+  <input
+    type="text"
+    name="Name"
+    class="form-control mb-2"
+    placeholder="Nombre del Personaje"
+    [(ngModel)]="character.name"
+  />
+  <input
+    type="number"
+    name="Power"
+    class="form-control mb-2"
+    placeholder="Poder"
+    [(ngModel)]="character.power"
+  />
+  <button class="btn btn-primary">Agregar</button>
+
+  <pre>{{ character | json }}</pre>
+</form>
+
+<!-- Como funciona el ngModel -->
+
+<!-- [(ngMoel)]="character.name" cambia la referencia. -->
