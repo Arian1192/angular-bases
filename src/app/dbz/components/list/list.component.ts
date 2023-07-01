@@ -11,7 +11,7 @@ import { Character } from '../../interfaces/character.interface';
 export class ListComponent {
 
   @Output()
-  public onDeleteCharacterId: EventEmitter<number> = new EventEmitter()
+  public onDeleteCharacterId: EventEmitter<string> = new EventEmitter()
 
 
   @Input()
@@ -20,9 +20,8 @@ export class ListComponent {
     power: 10
   }]
 
-  onDeleteCharacter(index: number): void {
-    // emitir el ID del personaje
-    console.log({ index })
-    this.onDeleteCharacterId.emit(index)
+  onDeleteCharacter(id?: string): void {
+    if (!id) return
+    this.onDeleteCharacterId.emit(id)
   }
 }
